@@ -85,17 +85,44 @@ showInfoButton.addEventListener('click', function() {
 let informationForm = document.querySelector('#information-form');
 
 // Do something when form is submitted
-informationForm.addEventListener('submit', function(event) {
+ informationForm.addEventListener('submit', function(event) {
   event.preventDefault(); // You will want this here. Remove it and see what changes.
+  console.log("Form Submitted");
+	 
+  var firstname = document.getElementById('fname').value;
+  document.getElementById("firstname").innerHTML = firstname;
+	 
+  var lastname = document.getElementById('lname').value;
+  document.getElementById("lastname").innerHTML = lastname;
+  
+  var car = document.getElementById('cars').value;
+  document.getElementById("chosencar").innerHTML = car;
+	 
+  var icecreams = document.getElementsByName('icecream');
+	 for(var i = 0; i < icecreams.length; i++){
+		 if(icecreams[i].checked){
+			 document.getElementById("icecreamstatus").innerHTML = icecreams[i].value;
+		 }
+	 }
+	 
+	
+    var checkboxes = document.getElementsByName('skill');
+    for (var checkbox of checkboxes) {
+    if (checkbox.checked)
+      document.getElementById("checks").append(checkbox.value + ', ');
+  }
 
-  console.log('Form submitted');
-
+		
+  
+  
   // Your job:
   //   1. Get information typed into the form
   //   2. Display that info in "Display that info here" section
 
   // Google things like:
   //   javascript form element get values
+	 
+	 
 });
 
 /*************************************
@@ -111,15 +138,18 @@ informationForm.addEventListener('submit', function(event) {
 // then log something to the console
 
 // Fill in ________ to get a reference to the correct button on the page
-let consoleLogButton = document.querySelector('#________');
+let consoleLogButton = document.querySelector('#console-log-button');
 
 // Log something when that button is clicked
 consoleLogButton.addEventListener('click', function() {
-  console.log('Change this text if you want!');
+  console.log('You logged it!');
 });
 
-let makeBlueButton = document.querySelector('#________');
+let makeBlueButton = document.querySelector('#make-blue-button');
 makeBlueButton.addEventListener('click', function() {
+	
+	document.getElementById("colorText").style.color = "blue";
+	
   // Your job:
   //  1. When a user clicks "Change the text to the right blue"
   //  2. Change the text in <div id="colorText">...</div> to blue
@@ -127,7 +157,9 @@ makeBlueButton.addEventListener('click', function() {
 
 // Adding an event listener to document means the "keydown" event
 // can happen anywhere on the page and we'll respond.
-document.addeventListener('keydown', function() {
+document.addEventListener('keydown', function() {
+	
+	document.getElementById("colorText").style.color = "red";
   // This is called whenever a user pressed any key.
 
   // Your job:
