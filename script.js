@@ -21,8 +21,11 @@ function addName() {
   // - https://www.digitalocean.com/community/tutorials/js-innertext-and-innerhtml
   // - https://www.w3schools.com/jsref/prop_node_innertext.asp
 
+  document.getElementById('show-info-button').innerText = 'Have some more fun below!';
+
+
   let nameElement = document.querySelector('#name');
-  nameElement.innerText = 'See script.js!';
+  nameElement.innerText = 'Mia!';
 }
 
 function addFavoriteThings() {
@@ -36,6 +39,36 @@ function addFavoriteThings() {
   //   - https://htmldog.com/guides/javascript/advanced/creatingelements/
   //   - https://www.javascripttutorial.net/javascript-dom/javascript-createelement/
   //   - https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+
+  var x = document.createElement("favthings");
+  x.setAttribute("id", "favthings");
+  document.body.appendChild(x);
+
+  var y = document.createElement("LI");
+  var t = document.createTextNode("Tea");
+  y.appendChild(t);
+  document.getElementById("favthings").appendChild(y);
+
+  var y = document.createElement("LI");
+  var s = document.createTextNode("Sushi");
+  y.appendChild(s);
+  document.getElementById("favthings").appendChild(y);
+
+  var y = document.createElement("LI");
+  var m = document.createTextNode("Insomnia Cookies");
+  y.appendChild(m);
+  document.getElementById("favthings").appendChild(y);
+
+  var y = document.createElement("LI");
+  var n = document.createTextNode("Music");
+  y.appendChild(n);
+  document.getElementById("favthings").appendChild(y);
+
+  var y = document.createElement("LI");
+  var q = document.createTextNode("Games");
+  y.appendChild(q);
+  document.getElementById("favthings").appendChild(y);
+
 }
 
 function replaceImage() {
@@ -46,6 +79,8 @@ function replaceImage() {
   // See:
   // - https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-get-set-attributes.php
   // - https://www.w3schools.com/jsref/met_element_setattribute.asp
+
+  document.getElementById("picture").src = "dsc_1054.jpg";
 }
 
 function changeCodeStatus() {
@@ -54,10 +89,20 @@ function changeCodeStatus() {
   // 1. Get a reference to <div id="codestatus">
   // 2. Create image element containing a sweet ol' meme
   // 3. Replace text in codestatus w/ image
+
+
+  let nameElement = document.querySelector('#codestatus');
+
+  console.log(nameElement);
+  nameElement.innerHTML = '<img src="https://media1.giphy.com/media/110F1JFzWKtiA8/200.webp?cid=ecf05e47d8c7a809f3597780998110da0f55e5f97f683dac&rid=200.webp">';
+
 }
 
 // Get a reference to the button w/ id="show-info-button"
 let showInfoButton = document.querySelector('#show-info-button');
+
+var x = document.getElementById("show-info-button").value;
+
 
 // Do something when showInfoButton is clicke
 showInfoButton.addEventListener('click', function() {
@@ -187,6 +232,62 @@ document.addEventListener('keydown', function() {
  */
 
 // Your code goes here
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
 
 /****************************************
  * Section 5 - setInterval + setTimeout *
