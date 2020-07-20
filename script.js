@@ -305,7 +305,7 @@ function newElement() {
  *   - https://javascript.info/settimeout-setinterval
  *
  */
-
+/*
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
@@ -324,7 +324,7 @@ function pad(val) {
   } else {
     return valString;
   }
-} 
+} */
 
 
 
@@ -343,4 +343,14 @@ function pad(val) {
  *
  */
 
-// Your code goes here
+var name;
+name = prompt('Enter your name:');
+
+document.getElementById("myBtn").addEventListener("click", function() {
+  myFunction(name);
+});
+
+function myFunction(name) {
+  
+  document.getElementById("message").innerHTML = name + ", you are amazing!";
+}

@@ -133,11 +133,34 @@
         Here's my delayed display:<div id="delayedDisplay"></div>
       </div>
     </div>
+	   <div class="container"
 	  
-	  <label id="minutes">00</label>:<label id="seconds">00</label>
+	  <p>You have reached the end of the page. Click the button for a special note.</p>
+
+      <button id="myBtn">Click me!</button>
+     
+         <p id="message"></p>
+	</div>
   </main>
 
   <script src="script.js"></script>
 </body>
 
 </html>
+<script>
+let timer = setInterval(eachSecond, 1000);
+var time = 0;
+function eachSecond() {
+  time ++;
+  document.getElementById('seconds').innerText = time;
+}
+
+let delay = setTimeout(delayedDisplay, 10000);
+
+function delayedDisplay() {
+    document.getElementById('delayedDisplay').innerText = 'You stayed for 10 seconds.';
+}
+	</script>
+
+
+
