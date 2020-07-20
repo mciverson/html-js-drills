@@ -133,41 +133,41 @@ let informationForm = document.querySelector('#information-form');
  informationForm.addEventListener('submit', function(event) {
   event.preventDefault(); // You will want this here. Remove it and see what changes.
   console.log("Form Submitted");
-	 
+
   var firstname = document.getElementById('fname').value;
   document.getElementById("firstname").innerHTML = firstname;
-	 
+
   var lastname = document.getElementById('lname').value;
   document.getElementById("lastname").innerHTML = lastname;
-  
+
   var car = document.getElementById('cars').value;
   document.getElementById("chosencar").innerHTML = car;
-	 
+
   var icecreams = document.getElementsByName('icecream');
 	 for(var i = 0; i < icecreams.length; i++){
 		 if(icecreams[i].checked){
 			 document.getElementById("icecreamstatus").innerHTML = icecreams[i].value;
 		 }
 	 }
-	 
-	
+
+
     var checkboxes = document.getElementsByName('skill');
     for (var checkbox of checkboxes) {
     if (checkbox.checked)
       document.getElementById("checks").append(checkbox.value + ', ');
   }
 
-		
-  
-  
+
+
+
   // Your job:
   //   1. Get information typed into the form
   //   2. Display that info in "Display that info here" section
 
   // Google things like:
   //   javascript form element get values
-	 
-	 
+
+
 });
 
 /*************************************
@@ -187,14 +187,15 @@ let consoleLogButton = document.querySelector('#console-log-button');
 
 // Log something when that button is clicked
 consoleLogButton.addEventListener('click', function() {
-  console.log('You logged it!');
+  console.log('You logged it!')
 });
+
 
 let makeBlueButton = document.querySelector('#make-blue-button');
 makeBlueButton.addEventListener('click', function() {
-	
+
 	document.getElementById("colorText").style.color = "blue";
-	
+
   // Your job:
   //  1. When a user clicks "Change the text to the right blue"
   //  2. Change the text in <div id="colorText">...</div> to blue
@@ -203,7 +204,7 @@ makeBlueButton.addEventListener('click', function() {
 // Adding an event listener to document means the "keydown" event
 // can happen anywhere on the page and we'll respond.
 document.addEventListener('keydown', function() {
-	
+
 	document.getElementById("colorText").style.color = "red";
   // This is called whenever a user pressed any key.
 
@@ -254,15 +255,9 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
 
 // Create a new list item when clicking on the "Add" button
+
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
@@ -324,7 +319,11 @@ function pad(val) {
   } else {
     return valString;
   }
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> ca6b50c9de0b49a11b61dc0f138b26cf675b3a54
 
 
 
