@@ -21,11 +21,9 @@ function addName() {
   // - https://www.digitalocean.com/community/tutorials/js-innertext-and-innerhtml
   // - https://www.w3schools.com/jsref/prop_node_innertext.asp
 
-  document.getElementById('show-info-button').innerText = 'Have some more fun below!';
-
-
   let nameElement = document.querySelector('#name');
-  nameElement.innerText = 'Mia!';
+  nameElement.innerText = 'Mia Iverson';
+  nameElement.style.color = 'green';
 }
 
 function addFavoriteThings() {
@@ -40,34 +38,21 @@ function addFavoriteThings() {
   //   - https://www.javascripttutorial.net/javascript-dom/javascript-createelement/
   //   - https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 
-  var x = document.createElement("favthings");
-  x.setAttribute("id", "favthings");
-  document.body.appendChild(x);
 
-  var y = document.createElement("LI");
-  var t = document.createTextNode("Tea");
-  y.appendChild(t);
-  document.getElementById("favthings").appendChild(y);
+  let teaListItem = document.createElement('li');
+  teaListItem.innerText = 'Tea';
 
-  var y = document.createElement("LI");
-  var s = document.createTextNode("Sushi");
-  y.appendChild(s);
-  document.getElementById("favthings").appendChild(y);
+  let sushiListItem = document.createElement('li');
+  sushiListItem.innerText = 'Sushi';
 
-  var y = document.createElement("LI");
-  var m = document.createTextNode("Insomnia Cookies");
-  y.appendChild(m);
-  document.getElementById("favthings").appendChild(y);
+  let cookiesListItem = document.createElement('li');
+  cookiesListItem.innerText = 'Cookies';
 
-  var y = document.createElement("LI");
-  var n = document.createTextNode("Music");
-  y.appendChild(n);
-  document.getElementById("favthings").appendChild(y);
+  let favThingsList = document.querySelector('#favthings');
 
-  var y = document.createElement("LI");
-  var q = document.createTextNode("Games");
-  y.appendChild(q);
-  document.getElementById("favthings").appendChild(y);
+  favThingsList.appendChild(teaListItem);
+  favThingsList.appendChild(sushiListItem);
+  favThingsList.appendChild(cookiesListItem);
 
 }
 
@@ -80,21 +65,24 @@ function replaceImage() {
   // - https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-get-set-attributes.php
   // - https://www.w3schools.com/jsref/met_element_setattribute.asp
 
-  document.getElementById("picture").src = "dsc_1054.jpg";
+
+  let doggoBeGone = document.querySelector('#picture');
+  doggoBeGone.src = "dsc_1054.jpg";
 }
 
 function changeCodeStatus() {
-  console.log('Called changeCodeStatus()');
 
   // 1. Get a reference to <div id="codestatus">
   // 2. Create image element containing a sweet ol' meme
   // 3. Replace text in codestatus w/ image
 
-
+  console.log('Called changeCodeStatus()');
   let nameElement = document.querySelector('#codestatus');
+
 
   console.log(nameElement);
   nameElement.innerHTML = '<img src="https://media1.giphy.com/media/110F1JFzWKtiA8/200.webp?cid=ecf05e47d8c7a809f3597780998110da0f55e5f97f683dac&rid=200.webp">';
+
 
 }
 
@@ -319,11 +307,7 @@ function pad(val) {
   } else {
     return valString;
   }
-<<<<<<< HEAD
 } */
-=======
-}
->>>>>>> ca6b50c9de0b49a11b61dc0f138b26cf675b3a54
 
 
 
@@ -350,6 +334,6 @@ document.getElementById("myBtn").addEventListener("click", function() {
 });
 
 function myFunction(name) {
-  
+
   document.getElementById("message").innerHTML = name + ", you are amazing!";
 }
